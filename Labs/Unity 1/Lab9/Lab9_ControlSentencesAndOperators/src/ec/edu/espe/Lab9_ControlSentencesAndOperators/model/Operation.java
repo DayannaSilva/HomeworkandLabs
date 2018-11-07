@@ -46,4 +46,6 @@ public class Operation {
         System.out.print("El residuo es:"+operand1);
         return cont;
     }
+
+    
 }

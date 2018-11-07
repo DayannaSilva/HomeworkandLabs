@@ -5,7 +5,8 @@
  */
 package ec.edu.espe.Lab9_ControlSentencesAndOperators.model;
 
-import java.util.Date;
+import java.util.Calendar;
+//import java.util.Date;
 
 /**
  *
@@ -13,23 +14,32 @@ import java.util.Date;
  */
 public class Person {
     private int day,month,year;
-    private Date date;
-    private int age;
+    private int ageYear,ageMonth,ageDay;
+    
+    
+    
     public void calculateAge (){
+        Calendar today = Calendar.getInstance();
+        //date = new Date ();
+        
+        Operation operation = new Operation();
+        ageYear = operation.subtraction(today.get(Calendar.YEAR), getYear());
+        ageMonth = operation.subtraction((today.get(Calendar.MONTH)+1), getMonth());
+        ageDay = operation.subtraction(today.get(Calendar.DAY_OF_MONTH), getDay());        
+       
     }
 
+    public Person(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+    
     /**
      * @return the day
      */
     public int getDay() {
         return day;
-    }
-
-    /**
-     * @param day the day to set
-     */
-    public void setDay(int day) {
-        this.day = day;
     }
 
     /**
@@ -61,30 +71,48 @@ public class Person {
     }
 
     /**
-     * @return the date
+     * @return the ageYear
      */
-    public Date getDate() {
-        return date;
+    public int getAgeYear() {
+        return ageYear;
     }
 
     /**
-     * @param date the date to set
+     * @param ageYear the ageYear to set
      */
-    public void setDate(Date date) {
-        this.date = date;
+    public void setAgeYear(int ageYear) {
+        this.ageYear = ageYear;
     }
 
     /**
-     * @return the age
+     * @return the ageMonth
      */
-    public int getAge() {
-        return age;
+    public int getAgeMonth() {
+        return ageMonth;
     }
 
     /**
-     * @param age the age to set
+     * @param ageMonth the ageMonth to set
      */
-    public void setAge(int age) {
-        this.age = age;
+    public void setAgeMonth(int ageMonth) {
+        this.ageMonth = ageMonth;
     }
+
+    /**
+     * @return the ageDay
+     */
+    public int getAgeDay() {
+        return ageDay;
+    }
+
+    /**
+     * @param ageDay the ageDay to set
+     */
+    public void setAgeDay(int ageDay) {
+        this.ageDay = ageDay;
+    }
+    
+    
+
+    
 }
