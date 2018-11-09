@@ -17,7 +17,7 @@ public class Operation {
         result = operand1 + operand2;
         return result;
     }
-    public int subtraction (int operand1, int operand2){
+    public int subs (int operand1, int operand2){
         result = add(operand1,(-operand2));
         return result;
     }

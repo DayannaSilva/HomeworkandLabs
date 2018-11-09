@@ -28,12 +28,12 @@ public class File_SilvaDayanna {
         // TODO code application logic here
         String sep = File.separator;
         Path path = Paths.get(sep+"Users"+sep+"DayannaSilva"+sep+"Dropbox"+sep+"HomeworkandLabs"+sep+"Homework"+sep+"Unity 1"+sep+"Homework3"+sep+"Archivo.txt");      
-        /*createFile(path);
+        createFile(path);
         addText(path.toString(),"Hello, writing in the file\n");
         String info_archivo = readFile(path.toString());
 		if(info_archivo != null){
 			System.out.println("Text file: "+info_archivo);
-		}*/
+		}
         deleteFile(path.toString()); 
     }
     public static void createFile (Path path) throws IOException{
