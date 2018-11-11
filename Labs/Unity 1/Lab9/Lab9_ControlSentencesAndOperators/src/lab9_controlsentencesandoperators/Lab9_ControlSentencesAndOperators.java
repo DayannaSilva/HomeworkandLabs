@@ -23,7 +23,7 @@ public class Lab9_ControlSentencesAndOperators {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        
+        Calendar today = Calendar.getInstance();
         Scanner in = new Scanner (System.in);
         int day,month,year;
         String name;
@@ -31,6 +31,7 @@ public class Lab9_ControlSentencesAndOperators {
         int valid = 0;
         do{         
         System.out.println("-------****EDAD****-------");
+        System.out.println("Fecha:"+today.get(Calendar.YEAR)+"-"+(today.get(Calendar.MONTH)+1)+"-"+today.get(Calendar.DAY_OF_MONTH));
         System.out.println("Ingrese su Nombre");
         name = in.nextLine(); 
         System.out.println("Ingrese el año de nacimiento");

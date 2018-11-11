@@ -25,11 +25,11 @@ public class Lab10_ControlSentencesAndOperators {
         Scanner in = new Scanner (System.in);
         int day,month,year;
         Files arch = new Files();
-        File file = new File ("Archivo1.csv");//Crear el archivo       
+        File file = new File ("Archivo.csv");//Crear el archivo       
         String name, data;
-        //char resp = 'n';
+        
         int valid = 0;
-        //do{         
+            
         System.out.println("-------****EDAD****-------");
         System.out.println("Ingrese su Nombre");
         name = in.nextLine(); 
@@ -56,13 +56,7 @@ public class Lab10_ControlSentencesAndOperators {
         }
         Person person = new Person(year, month, day);
         person.calcAge(year,month,day); 
-        
-        /*System.out.println("DESEA INGRESAR NUEVA FECHA y/n: ");
-        System.out.println("Si (y) - NO (n): ");
-            in.nextLine();
-            resp = in.next().toLowerCase().charAt(0);
-        }while(resp == 'y');
-        System.out.println("EL PROGRAMA HA FINALIZADO");*/
+
         data = name + "," + person.getAgeYear() + "," + person.getAgeMonth() + "," + person.getAgeDay();
         arch.Write(file, data);
         System.out.println("***Edades***");

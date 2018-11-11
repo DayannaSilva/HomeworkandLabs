@@ -25,6 +25,7 @@ public class Person {
         actualMonth=today.get(Calendar.MONTH)+1;
         actualDay=today.get(Calendar.DAY_OF_MONTH);
         
+        
         if(actualYear == bornYear && actualMonth == bornMonth && actualDay == bornDay){
             System.out.println("LA PERSONA NACIÓ HOY!");
         }else{

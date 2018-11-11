@@ -25,48 +25,60 @@ public class Person {
         actualMonth=today.get(Calendar.MONTH)+1;
         actualDay=today.get(Calendar.DAY_OF_MONTH);
         
-        if(actualMonth > bornMonth){
-            
-                ageYear = operation.subs(actualYear, bornYear);
-                if(actualDay < bornDay){
-                    ageMonth = operation.subs(actualMonth, bornMonth);
-                    ageMonth = operation.subs(ageMonth,1);
-                    ageDay=operation.subs(31,bornDay);
-                    ageDay=operation.add(ageDay, actualDay);
-                }else{
-                    ageMonth = operation.subs(actualMonth, bornMonth);
-                    ageDay = operation.subs(actualDay, bornDay);
-                }
+        if(actualYear == bornYear && actualMonth == bornMonth && actualDay == bornDay){
+            System.out.println("LA PERSONA NACIÓ HOY!");
         }else{
-                if(actualDay < bornDay){
+          
+            if(actualMonth > bornMonth){
+
                     ageYear = operation.subs(actualYear, bornYear);
-                    ageYear = operation.subs(ageYear, 1);
-                    ageMonth = operation.subs(actualMonth, 1);
-                    if(actualMonth==1 || actualMonth==3 || actualMonth==5 || actualMonth==7 || actualMonth==8 || actualMonth==10 || actualMonth==12){
+                    if(actualDay < bornDay){
+                        ageMonth = operation.subs(actualMonth, bornMonth);
+                        ageMonth = operation.subs(ageMonth,1);
                         ageDay=operation.subs(31,bornDay);
                         ageDay=operation.add(ageDay, actualDay);
-                        if(actualMonth == 2){
-                            ageDay=operation.subs(28,bornDay);
+                    }else{
+                        ageMonth = operation.subs(actualMonth, bornMonth);
+                        ageDay = operation.subs(actualDay, bornDay);
+                    }
+            }else{
+                    if(actualDay < bornDay){
+                        ageYear = operation.subs(actualYear, bornYear);
+                        ageYear = operation.subs(ageYear, 1);
+                        ageMonth = operation.subs(actualMonth, 1);
+                        if(actualMonth==1 || actualMonth==3 || actualMonth==5 || actualMonth==7 || actualMonth==8 || actualMonth==10 || actualMonth==12){
+                            ageDay=operation.subs(31,bornDay);
+                            ageDay=operation.add(ageDay, actualDay);
+                            if(actualMonth == 2){
+                                ageDay=operation.subs(28,bornDay);
+                                ageDay=operation.add(ageDay, actualDay);
+                            }
+                        }else{
+                            ageDay=operation.subs(30,bornDay);
                             ageDay=operation.add(ageDay, actualDay);
                         }
+
                     }else{
-                        ageDay=operation.subs(30,bornDay);
-                        ageDay=operation.add(ageDay, actualDay);
+                    ageYear = operation.subs(actualYear, bornYear);
+                    ageYear = operation.subs(ageYear, 1);
+                    ageMonth = actualMonth;
+                    ageDay = actualDay;
                     }
-                    
-                }else{
-                ageYear = operation.subs(actualYear, bornYear);
-                ageYear = operation.subs(ageYear, 1);
-                ageMonth = actualMonth;
-                ageDay = actualDay;
-                }
+            }
+
+            if(ageYear < 0){
+                System.out.println("LA PERSONA AÚN NO HA NACIDO");
+            }else{
+                System.out.println("USTED TIENE: " + ageYear + " AÑOS, " + ageMonth + " MESES Y " + ageDay + " DIAS");   
+            }
         }
-        
-        if(ageYear < 0){
-            System.out.println("LA PERSONA AÚN NO HA NACIDO");
-        }else{
-            System.out.println("USTED TIENE: " + ageYear + " AÑOS, " + ageMonth + " MESES Y " + ageDay + " DIAS");   
-        }
+    }
+    public boolean validate(int year,int month, int day){
+        boolean alert=false;
+            if (year < 0 || month < 0 | month > 12 || day < 0 | day > 31) {
+                alert=true;            
+            }
+        return alert;
     }
     
     public Person(int year, int month, int day) {
@@ -151,5 +163,5 @@ public class Person {
     public void setAgeDay(int ageDay) {
         this.ageDay = ageDay;
     }
-   
+
 }
