@@ -20,8 +20,7 @@ public class Animal {
     public void computingYearsOfStay (int arrivalYear){
         //Operation operation = new Operation();
         Calendar cal = new GregorianCalendar();
-        yearsOfStay = (cal.get(Calendar.YEAR)-arrivalYear);
-        
+        yearsOfStay = (cal.get(Calendar.YEAR)-arrivalYear); 
         
     }
 
