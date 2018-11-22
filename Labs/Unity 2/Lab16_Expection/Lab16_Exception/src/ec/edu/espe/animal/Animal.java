@@ -11,8 +11,16 @@ package ec.edu.espe.animal;
  */
 public class Animal {
     public String eyes;
+    static int barnNumber=7;
     public void feed(){
         System.out.println("The animal is eating");
+    }
+    public void assignBarn (int bn){
+        barnNumber=bn;
+    }
+
+    public  int getBarnNumber() {
+        return barnNumber;
     }
     
 }
