@@ -99,6 +99,15 @@ public class OperationTest {
         short actualResult = operation.add(operand1, operand2);
         assertEquals(expResult,actualResult);
         System.out.println(""+ operand1 +"+"+  operand2 +"Succeeded");
-    
+    }
+    @Test
+    public void testAddCaracter (){
+        short operand1 ='1';  
+        short operand2 ='2';   
+        int expResult = '3';
+        Operation operation = new Operation();
+        short actualResult = operation.add(operand1, operand2);
+        assertEquals(expResult,actualResult);
+        System.out.println(""+ operand1 +"+"+  operand2 +"Succeeded");
     }
 }
