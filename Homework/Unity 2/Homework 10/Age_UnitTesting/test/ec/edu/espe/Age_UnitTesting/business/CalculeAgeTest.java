@@ -40,7 +40,7 @@ public class CalculeAgeTest {
     /**
      * Test of day method, of class CalculeAge.
      */
-    @Test
+    /*@Test
     public void testAge() {
         System.out.println("AGE");
         int bornDay = 5;
@@ -63,12 +63,26 @@ public class CalculeAgeTest {
         expResult = 1;
         result = instance.day(bornDay, bornMonth, bornYear);
         assertEquals(expResult, result);
+        expResult3 = 8 ;
+        result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);
         expResult2 = 18;
         result2 = instance.year(bornDay, bornMonth, bornYear);
         assertEquals(expResult2, result2);
-        expResult3 = 8 ;
+           
+        
+        bornDay = 11;
+        bornMonth = 4;
+        bornYear = 1997;
+        expResult = 30;
+        result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        expResult3 = 7 ;
         result3 = instance.month(bornDay, bornMonth, bornYear);
-        assertEquals(expResult3, result3);     
+        assertEquals(expResult3, result3); 
+        expResult2 = 22;
+        result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
         
         
     }
@@ -89,6 +103,7 @@ public class CalculeAgeTest {
         int result3 = instance.month(bornDay, bornMonth, bornYear);
         assertEquals(expResult3, result3);  
     }
+     @Test
     public void charTestAge() {
         System.out.println("AGE");
         int bornDay = '5';
@@ -105,6 +120,109 @@ public class CalculeAgeTest {
         int result3 = instance.month(bornDay, bornMonth, bornYear);
         assertEquals(expResult3, result3);
         
+    }*/
+    @Test
+    public void testAge1() {
+        System.out.println("AGE");
+        int bornDay = 29;
+        int bornMonth = 2;
+        int bornYear = 2015;
+        CalculeAge instance = new CalculeAge();
+        int expResult = -1;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = -1;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = -1;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);
+        
+    }
+    @Test
+    public void testAge2() {
+        System.out.println("AGE");
+        int bornDay = 31;
+        int bornMonth = 4;
+        int bornYear = 2016;
+        CalculeAge instance = new CalculeAge();
+        int expResult = -1;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = -1;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = -1;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);
+    }
+    @Test
+    public void testAge3() {
+        System.out.println("AGE");
+        int bornDay = 31;
+        int bornMonth = 11;
+        int bornYear = 2013;
+        CalculeAge instance = new CalculeAge();
+        int expResult = -1;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = -1;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = -1;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);   
+    }
+    @Test
+    public void testAge4() {
+        System.out.println("AGE");
+        int bornDay = 17;
+        int bornMonth = 12;
+        int bornYear = 1970;
+        CalculeAge instance = new CalculeAge();
+        int expResult =27 ;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = 47;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = 11;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);
+    }
+    @Test
+    public void testAge5() {
+        System.out.println("AGE");
+        int bornDay = 17;
+        int bornMonth = 12;
+        int bornYear = 1970;
+        CalculeAge instance = new CalculeAge();
+        int expResult = 26;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = 47;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = 11;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);  
+    }
+    @Test
+    public void testAge6() {
+        System.out.println("AGE");
+        int bornDay = 13;
+        int bornMonth = 12;
+        int bornYear = 1970;
+        CalculeAge instance = new CalculeAge();
+        int expResult = 0;
+        int result = instance.day(bornDay, bornMonth, bornYear);
+        assertEquals(expResult, result);
+        int expResult2 = 47;
+        int result2 = instance.year(bornDay, bornMonth, bornYear);
+        assertEquals(expResult2, result2);
+        int expResult3 = 0;
+        int result3 = instance.month(bornDay, bornMonth, bornYear);
+        assertEquals(expResult3, result3);  
     }
 
     /**
