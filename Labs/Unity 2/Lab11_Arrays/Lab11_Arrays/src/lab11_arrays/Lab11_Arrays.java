@@ -21,6 +21,7 @@ public class Lab11_Arrays {
     
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
+        
         int year,month,day;
         String name,data;
         
