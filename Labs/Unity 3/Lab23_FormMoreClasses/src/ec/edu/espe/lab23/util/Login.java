@@ -6,6 +6,7 @@
 package ec.edu.espe.lab23.util;
 
 
+import ec.edu.espe.lab23_formmoreclasses.GUI.Login1;
 import java.io.File;
 import java.security.MessageDigest;
 import java.util.Arrays;
@@ -22,7 +23,8 @@ import sun.security.util.Password;
  */
 public class Login {
       FileManager file= new FileManager();
-         File arch = new File("Claves.csv");
+      File arch = new File("Claves.csv");
+      
      
      public void saveUser(String user ,String pas){
        
@@ -37,16 +39,19 @@ public class Login {
      }
      
      public void enter(String user, String password){
-         String userecr= encriptar(user);
-          String pasecr= encriptar(password);
-         String chain=file.searchInFile(arch, userecr);
-         System.out.println("ch----"+chain);
+        String userecr= encriptar(user);
+        String pasecr= encriptar(password);
+        String chain=file.searchInFile(arch, userecr);
+        System.out.println("ch----"+chain);
          
-         if ((userecr.equals(chain.split(";")[0])) && (pasecr.equals(chain.split(";")[1]))){
+        if ((userecr.equals(chain.split(";")[0])) && (pasecr.equals(chain.split(";")[1]))){
              JOptionPane.showMessageDialog(null,"Bienvenido");
              
-         }else{
-             JOptionPane.showMessageDialog(null, "Usuario No Registrado");
+        }else{
+             JOptionPane.showMessageDialog(null, "Usuario Incorrecto"
+                        , "Error", JOptionPane.ERROR_MESSAGE);
+           
+             
          }
          
          

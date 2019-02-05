@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.lab23_formmoreclasses.GUI;
+package ec.edu.espe.lab26_guipluspersistence.GUI;
 
 
-import ec.edu.espe.lab23.util.Login;
+
+import ec.edu.espe.lab26_guipluspersistence.model.Login;
+import ec.edu.espe.lab26_guipluspersistence.util.FileManager;
 import sun.security.util.Password;
 
 /**
@@ -16,7 +18,8 @@ import sun.security.util.Password;
 public class Login1 extends javax.swing.JFrame {
 
     String user;
-     String password;
+    FileManager File = new FileManager();
+    
     Login pas = new Login();
     public Login1() {
         initComponents();
@@ -32,17 +35,12 @@ public class Login1 extends javax.swing.JFrame {
     private void initComponents() {
 
         lbluser = new javax.swing.JLabel();
-        lblpassword = new javax.swing.JLabel();
-        txtusername = new javax.swing.JTextField();
         btnenter = new javax.swing.JButton();
         pswpassword = new javax.swing.JPasswordField();
-        btnregister = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbluser.setText("Usuario");
-
-        lblpassword.setText("Contraseña");
 
         btnenter.setText("Entrar");
         btnenter.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +49,9 @@ public class Login1 extends javax.swing.JFrame {
             }
         });
 
-        btnregister.setText("Registrarse");
-        btnregister.addActionListener(new java.awt.event.ActionListener() {
+        pswpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregisterActionPerformed(evt);
+                pswpasswordActionPerformed(evt);
             }
         });
 
@@ -63,55 +60,46 @@ public class Login1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblpassword)
-                    .addComponent(lbluser))
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtusername)
-                    .addComponent(pswpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(btnregister)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnenter)
-                .addGap(52, 52, 52))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(lbluser)
+                        .addGap(18, 18, 18)
+                        .addComponent(pswpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(btnenter)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbluser)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpassword)
-                    .addComponent(pswpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnregister)
-                    .addComponent(btnenter))
-                .addGap(46, 46, 46))
+                    .addComponent(pswpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbluser))
+                .addGap(50, 50, 50)
+                .addComponent(btnenter)
+                .addGap(103, 103, 103))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenterActionPerformed
-        user=txtusername.getText();
-        pas.enter(user,pswpassword.getText());
-        Registry reg= new Registry();
-        reg.setVisible(true);
+        user= pswpassword.getText();
+        pas.enter(user);
+        Movimiento mov = new Movimiento();
+        mov.setVisible(true);
+        
+       
+        
        
     }//GEN-LAST:event_btnenterActionPerformed
 
-    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
-      user=txtusername.getText();
-      pas.saveUser(user, pswpassword.getText());
-    }//GEN-LAST:event_btnregisterActionPerformed
+    private void pswpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pswpasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +128,8 @@ public class Login1 extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -151,10 +141,7 @@ public class Login1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnenter;
-    private javax.swing.JButton btnregister;
-    private javax.swing.JLabel lblpassword;
     private javax.swing.JLabel lbluser;
     private javax.swing.JPasswordField pswpassword;
-    private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }

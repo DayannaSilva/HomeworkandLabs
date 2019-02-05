@@ -8,6 +8,13 @@ package ec.edu.espe.lab23_formmoreclasses.GUI;
 import ec.edu.espe.lab23.util.FileManager;
 import static ec.edu.espe.lab23.util.FileManager.writeFile;
 import java.io.File;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -42,6 +49,7 @@ public class Registry extends javax.swing.JFrame {
         txtHoursWorked = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnCal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -67,6 +75,13 @@ public class Registry extends javax.swing.JFrame {
         btnCal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Imprimir ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -102,7 +117,10 @@ public class Registry extends javax.swing.JFrame {
                                             .addGap(58, 58, 58)))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtName)
-                                        .addComponent(txtSalary, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))))))
+                                        .addComponent(txtSalary, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +144,9 @@ public class Registry extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnCal))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jButton1)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,6 +184,25 @@ public class Registry extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    String texto = "Esto es lo que va a la impresora";
+ 
+		PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
+ 
+ 
+		DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
+		DocPrintJob docPrintJob = printService.createPrintJob();
+		Doc doc = new SimpleDoc(texto.getBytes(), flavor, null);
+		try {
+			docPrintJob.print(doc, null);
+		} catch (PrintException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
     private float calSalary(float money, int hourWork){
         return money * hourWork;
     }
@@ -217,6 +256,7 @@ public class Registry extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

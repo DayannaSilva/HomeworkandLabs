@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.lab23.util;
+package ec.edu.espe.lab25_.fullexercise.model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,20 +16,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author bombe
  */
-public class FileManager1 {
+public class Product {
     Vector vPrincipal=new Vector();
     
-    public DefaultTableModel Salary(){
+    public DefaultTableModel fillTable(){
       Vector cabeceras = new Vector();
-      cabeceras.addElement("");
-      cabeceras.addElement("");
-      cabeceras.addElement("");
-      cabeceras.addElement("");
+      cabeceras.addElement("Id:");
+      cabeceras.addElement("Nombre");
+      cabeceras.addElement("Precio");
+      cabeceras.addElement("Porcetaje");
+      cabeceras.addElement("PVP");
            
       DefaultTableModel mdlTable= new DefaultTableModel(cabeceras,0);
       
      try{
-         FileReader fr=new FileReader("Sueldos.csv");
+         FileReader fr=new FileReader("Producto.csv");
          BufferedReader br = new BufferedReader(fr);
          String d;
          while((d=br.readLine())!=null){
